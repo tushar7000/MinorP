@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ | AI Educator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Root Variables */
+    :root {
+      --primary-color: #1a73e8; /* Blue */
+      --secondary-color: #e8eaed; /* Light Gray */
+      --background-color: #202124; /* Dark Gray */
+      --card-bg: #2d2e30; /* Slightly lighter dark gray */
+      --border-color: #5f6368; /* Gray */
+      --shadow-color: rgba(0, 0, 0, 0.3); /* Darker shadow */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: url('back.jpg') no-repeat center center fixed; /* Add your image path here */
+      background-size: cover; 
+      color: var(--secondary-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--card-bg);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px var(--shadow-color);
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: var(--primary-color);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 700px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px var(--shadow-color);
+      backdrop-filter: blur(10px);
+      margin-top: 80px; /* Adjusted margin to avoid overlap with navbar */
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      font-size: 1.75rem;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out;
+    }
+
+    .faq-question {
+      background: var(--primary-color);
+      color: white;
+      padding: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      padding: 12px;
+      display: none;
+      font-size: 0.95rem;
+      color: var(--secondary-color);
+    }
+
+    .faq-question:hover {
+      background: #1557b9;
+    }
+
+    .faq-question span {
+      transition: transform 0.3s ease;
+    }
+
+    .faq-question.active span {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <div>
+      <a href="mp.html">Home</a>
+      <a href="faq.html">FAQ</a>
+      <a href="explore.html">Explore</a>
+    </div>
+  </div>
+
+  <!-- FAQ Container -->
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+    
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        What is AI Educator? <span>&#x25BC;</span>
+      </div>
+      <div class="faq-answer">
+        AI Educator is an advanced learning platform that provides AI-related resources, tutorials, and tools to help learners explore artificial intelligence.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        How can I sign up? <span>&#x25BC;</span>
+      </div>
+      <div class="faq-answer">
+        You can sign up by visiting the <a href="login.html" style="color: var(--primary-color); text-decoration: underline;">Login/Signup</a> page and filling in your details.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        Is AI Educator free to use? <span>&#x25BC;</span>
+      </div>
+      <div class="faq-answer">
+        Yes! AI Educator offers a wide range of free learning materials. Some advanced courses and tools may require a premium subscription.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        Can I access AI Educator on mobile? <span>&#x25BC;</span>
+      </div>
+      <div class="faq-answer">
+        Yes! AI Educator is fully responsive and works smoothly on all devices, including mobile phones and tablets.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFAQ(this)">
+        How do I reset my password? <span>&#x25BC;</span>
+      </div>
+      <div class="faq-answer">
+        Click on "Forgot Password?" on the <a href="login.html" style="color: var(--primary-color); text-decoration: underline;">Login</a> page and follow the instructions to reset your password.
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleFAQ(element) {
+      let answer = element.nextElementSibling;
+      let icon = element.querySelector("span");
+
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+        icon.classList.remove("active");
+      } else {
+        answer.style.display = "block";
+        icon.classList.add("active");
+      }
+    }
+  </script>
+
+</body>
+</html>
